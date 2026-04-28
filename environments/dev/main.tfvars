@@ -6,10 +6,7 @@ subnets    = ["subnet-0d6e6257f7a9c428c", "subnet-046b2912872f2bdd9"]
 
 databases = {
   postgresql = {
-    instance_type = "t3.small"
-  }
-  ports = {
-    postgresql = 5432
+    allocated_storage = 10
   }
 }
 
