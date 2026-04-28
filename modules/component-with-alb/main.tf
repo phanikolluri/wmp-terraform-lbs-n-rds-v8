@@ -120,8 +120,8 @@ resource "aws_lb_listener" "front_end" {
 }
 
 resource "aws_route53_record" "dns" {
-  zone_id = data.aws_route53_zone.dns.id
-  name    = var.dns_domain
+  zone_id = data.aws_route53_zone.dns.zone_id
+  name    = "${var.component}-${var.env}"
   type    = "CNAME"
   ttl     = 30
   records = [aws_lb.alb.dns_name]
