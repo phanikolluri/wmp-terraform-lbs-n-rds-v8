@@ -109,7 +109,7 @@ resource "aws_lb" "alb" {
 }
 
 resource "aws_lb_listener" "front_end" {
-  load_balancer_arn = aws_lb.alb.id
+  load_balancer_arn = aws_lb.alb.arn
   port              = var.lb["port"]
   protocol          = "HTTP"
 
