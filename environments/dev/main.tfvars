@@ -1,0 +1,77 @@
+dns_domain = "mydevops88.online."
+env = "dev"
+vpc_id     = "vpc-04ec560cdc2561e0d"
+subnets    = ["subnet-0d6e6257f7a9c428c", "subnet-046b2912872f2bdd9"]
+
+
+databases = {
+  postgresql = {
+    instance_type = "t3.small"
+  }
+  ports = {
+    postgresql = 5432
+  }
+}
+
+
+apps = {
+  frontend = {
+    instance_type = "t3.small"
+  }
+  ports = {
+    frontend = 80
+  }
+  asg = {
+    min_size = 2
+    max_size = 10
+  }
+  port = {
+    frontend = 80
+    lb_internal = false
+  }
+
+  portfolio-service = {
+    instance_type = "t3.small"
+  }
+  ports = {
+    portfolio-service = 8080
+  }
+  asg = {
+    min_size = 2
+    max_size = 10
+  }
+  lb = {
+    port = 8080
+    lb_internal = true
+  }
+
+  auth-service = {
+    instance_type = "t3.small"
+  }
+  ports = {
+    auth-service = 8081
+  }
+  asg = {
+    min_size = 2
+    max_size = 10
+  }
+  lb = {
+    port = 8081
+    lb_internal = true
+  }
+
+  analytics-service = {
+    instance_type = "t3.small"
+  }
+  ports = {
+    analytics-service = 8000
+  }
+  asg = {
+    min_size = 2
+    max_size = 10
+  }
+  lb = {
+    port = 8000
+    lb_internal = true
+  }
+}
