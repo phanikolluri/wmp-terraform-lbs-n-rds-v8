@@ -12,63 +12,65 @@ databases = {
 
 
 apps = {
+
   frontend = {
     instance_type = "t3.small"
-  }
-  ports = {
-    frontend = 80
-  }
-  asg = {
-    min_size = 2
-    max_size = 10
-  }
-  lb = {
-    port = 80
-    lb_internal = false
-  }
-
-  portfolio-service = {
-    instance_type = "t3.small"
-  }
-  ports = {
-    portfolio-service = 8080
-  }
-  asg = {
-    min_size = 2
-    max_size = 10
-  }
-  lb = {
-    port = 8080
-    lb_internal = true
+    ports = {
+      frontend = 80
+    }
+    lb = {
+      port        = 80
+      lb_internal = false
+    }
+    asg = {
+      min_size = 2
+      max_size = 10
+    }
   }
 
   auth-service = {
     instance_type = "t3.small"
+    ports = {
+      auth-service = 8081
+    }
+    lb = {
+      port        = 8081
+      lb_internal = true
+    }
+    asg = {
+      min_size = 2
+      max_size = 10
+    }
   }
-  ports = {
-    auth-service = 8081
-  }
-  asg = {
-    min_size = 2
-    max_size = 10
-  }
-  lb = {
-    port = 8081
-    lb_internal = true
+
+  portfolio-service = {
+    instance_type = "t3.small"
+    ports = {
+      portfolio-service = 8080
+    }
+    lb = {
+      port        = 8080
+      lb_internal = true
+    }
+    asg = {
+      min_size = 2
+      max_size = 10
+    }
   }
 
   analytics-service = {
     instance_type = "t3.small"
+    ports = {
+      analytics-service = 8000
+    }
+    lb = {
+      port        = 8000
+      lb_internal = true
+    }
+    asg = {
+      min_size = 2
+      max_size = 10
+    }
   }
-  ports = {
-    analytics-service = 8000
-  }
-  asg = {
-    min_size = 2
-    max_size = 10
-  }
-  lb = {
-    port = 8000
-    lb_internal = true
-  }
+
 }
