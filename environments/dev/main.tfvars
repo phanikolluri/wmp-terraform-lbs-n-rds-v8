@@ -22,8 +22,8 @@ apps = {
     min_size = 2
     max_size = 10
   }
-  port = {
-    frontend = 80
+  lb = {
+    port = 80
     lb_internal = false
   }
 
